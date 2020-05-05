@@ -49,7 +49,7 @@ document.addEventListener('keyup', function(event) {
 
 
 var playerName = prompt("Please enter your name", "");
-if (playerName.length < 100){
+if (playerName.length > 140){
 	playerName = "Name too long";
 }
 socket.emit('new player', playerName);
