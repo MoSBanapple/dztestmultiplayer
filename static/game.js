@@ -62,6 +62,7 @@ var context = canvas.getContext('2d');
 socket.on('state', function(players) {
   context.clearRect(0, 0, 800, 600);
   context.font = "10px Arial";
+  let leaderboardInput = "";
   for (var id in players) {
     var player = players[id];
     context.beginPath();
@@ -87,7 +88,13 @@ socket.on('state', function(players) {
 	context.textAlign = "center";
 	context.fillText(player.name, player.x, player.y + 20);
 	context.fill();
+	
+	leaderboardInput += player.name + ": " + player.kills + "<br />";
+	
+	
   }
+  
+  document.getElementById("leaderBoard").innerHTML = leaderboardInput;
 });
 
 socket.on('lose', function(){

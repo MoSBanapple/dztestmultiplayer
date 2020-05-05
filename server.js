@@ -75,6 +75,7 @@ io.on('connection', function(socket) {
 	  color: generateRandomColor(),
 	  name: playerName,
 	  bullets: [],
+	  kills: 0,
     };
   });
   socket.on('movement', function(data) {
@@ -180,9 +181,12 @@ for (const[key, value] of Object.entries(players)){
 			  //console.log(thisBullet.x, thisBullet.y, targetPlayer.x, targetPlayer.y);
 			  let dist = getDistance(thisBullet.x, thisBullet.y, targetPlayer.x, targetPlayer.y);
 			  //console.log(dist, targetPlayer.radius + thisBullet.radius);
-			  if (dist < targetPlayer.radius + thisBullet.radius){
-				  console.log("yeah");
+			  if (dist + 1 < targetPlayer.radius + thisBullet.radius){
+				  //console.log("yeah");
 				  toDelete.push(targetSocket);
+				  player.kills += 1;
+				  player.bullets.splice(j, 1);
+				  j--;
 			  }
 		  }
 	  }

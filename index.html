@@ -4,18 +4,22 @@
   <head>
 	
 	<link rel="stylesheet" href="./static/styles.css">
-    <title>Multisnake</title>
+    <title>Slow Bullets</title>
 
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-  <h1>MultiSnake</h1>
+  <h1>Slow Bullets</h1>
 
 <div class="container">
 	<div class="sideBar">
-		<h2>Introduction</h2>
+		<h2>Controls</h2>
 		<div id="infoBar">
-		Lorem Ipsum
+		<ul>
+			<li>WASD to move.</li>
+			<li>Click to shoot</li>
+			<li>Don't get hit</li>
+		</ul>
 		</div>
 	</div>
 	<div class="gameOfLife">
@@ -23,7 +27,9 @@
 
 	</div>
 	<div class="sideBar">
-		Lorem Ipsum
+		<h2>Kills</h2>
+		<div id="leaderBoard">
+		</div>
 	</div>
 </div>
   </body>
