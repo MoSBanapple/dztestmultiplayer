@@ -49,6 +49,9 @@ document.addEventListener('keyup', function(event) {
 
 
 var playerName = prompt("Please enter your name", "");
+if (playerName.length < 100){
+	playerName = "Name too long";
+}
 socket.emit('new player', playerName);
 setInterval(function() {
   socket.emit('movement', movement);
